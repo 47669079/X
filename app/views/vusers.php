@@ -4,10 +4,10 @@
 
 	use \X\Sys\View;
 	
-	class vHome extends View{
+	class vUsers extends View{
 
 		function __construct($dataView){
 			parent::__construct($dataView);
-			echo $this->render('thome.php');
+			echo $this->render('tusers.php');
 		}
 	}

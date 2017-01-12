@@ -1,0 +1,15 @@
+//Fitxer de configuració en json, por cada clave tenemos un objeto
+
+{
+	"app":{
+		"title":"XFramework",
+		"version":"1.0"
+	},
+	"dbconf":{
+		"driver":"",
+		"dbhost":"",
+		"dbuser":"",
+		"dbname":""
+	}
+
+}

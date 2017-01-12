@@ -11,8 +11,12 @@
 	**/
 
 	use X\Sys\Request;
+	use X\App\Controllers\Error;
 
 	class Core{
+
+		//Sempre necessita 3 parametres
+
 		static private $controller;
 		static private $action;
 		static private $params;
@@ -23,11 +27,20 @@
 			Request::exploding();
 			//$arrayquery preparat per extreure controlador
 
+
 			self::$controller=Request::getVariable();
-			
+			//$arrayquery preparat per extreure el controlador
+
 			self::$action=Request::getVariable();
 			
 			self::$params=Request::getParams();
+			//self es una forma de acceder a alguna funcion metodo variable o atributo de la misma clase como son estáticos la forma de acceder es self::
+
+			//El acceso estático es muy útil pero tenemos que tener cuidado porque abusar de ello haria relentizar la aplicación
+
+			//var_dump(self::$params);
+
+
 			
 			// Fer routing			
 			self::router();
@@ -55,7 +68,15 @@
 				}
 				else{ echo self::$action.': Mètode inexistent';}
 			}else{
-				echo self::$controller.': Controlador inexistent';
+				self::$controller=new Error(self::$params);
+				//hem de buscar un métode que interpreti si hi ha un métode inexsistent o no
+
+				//self es una forma de acceder a alguna funcion metodo variable o atributo de la misma clase como son estáticos la forma de acceder es self::
+
+			//El acceso estático es muy útil pero tenemos que tener cuidado porque abusar de ello haria relentizar la aplicación
+
+			//var_dump(self::$params);
+				
 			}
 		}
 	}

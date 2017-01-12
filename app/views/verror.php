@@ -4,10 +4,10 @@
 
 	use \X\Sys\View;
 	
-	class vHome extends View{
+	class vError extends View{
 
 		function __construct($dataView){
 			parent::__construct($dataView);
-			echo $this->render('thome.php');
+			echo $this->render('terror.php');
 		}
 	}
