@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-</head>
+<?php 
+	include 'head_common.php';
+	?>
 <body>
-	<h1><?= $this->title; ?></h1>
+	<h1><?= $this->page; ?></h1>
 	
-</body>
-</html>
+<?php 
+	include 'footer_common.php';
+?>

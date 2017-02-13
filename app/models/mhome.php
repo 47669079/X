@@ -9,4 +9,22 @@
 			parent::__construct();
 			
 		}
+
+		public function getRoles(){
+
+			$sql="SELECT * FROM roles";
+			$this->query($sql);
+
+			$res=$this->execute();
+
+			if($res){
+				$result=$this->resultSet();
+			}
+			else{
+				$result=null;
+			}
+
+			return $result;
+
+		}
 	}

@@ -5,19 +5,25 @@
    use X\Sys\Controller; //!!! cuando queremos utilizar una clase tendremos que poner use
 
 
-   class Home extends Controller{
-   		
+  class Home extends Controller{
+         
+         public function __construct($params){
+            parent::__construct($params);
+            $this->addData(array(
+               'page'=>'Home'));
+            $this->model=new \X\App\Models\mHome();
+            $this->view =new \X\App\Views\vHome($this->dataView,$this->dataTable);    
+         }
+         function home(){
+          
+            $data=$this->model->getRoles();
+            $this->addData($data);
+            //rebuilding with new data
+            
+            $this->view->__construct($this->dataView,$this->dataTable);
 
-   		public function __construct($params){
-   			parent::__construct($params);
-            $this->dataView=array(
-               'title'=>'Home',
-               'name'=>'Olalla');
-   			$this->model=new \X\App\Models\mHome(); //INSTANCIA
-   			$this->view =new \X\App\Views\vHome($this->dataView);
-   		}
+            $this->view->show();
+            
+         }
 
-   		function home(){
-   			
-   		}
-   }
+}

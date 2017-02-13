@@ -1,13 +1,21 @@
-<!-- Las plantillas html que pueden convivir con codigo php, actuarán como mascaras con un aspecto que se visualizará en el navegador pero tendrán espacios con código php que el controlador dará desde el modelo. -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-</head>
+<?php 
+	include 'head_common.php';
+	?>
 <body>
-	<h1><?= $this->title; ?></h1>
-	<h2><?= $this->name; ?></h2>
-</body>
-</html>
+
+	<h1><?= $this->page; ?></h1>
+	<table class="table table-hover">
+		<?php for($i=0;$i<count($this->dataTable);$i++){ ?>
+			<tr>
+			<?php foreach($this->dataTable[$i] as $key=>$value) :?>
+				
+	        		<td><?= $value; ?></td>
+	    	
+	    	<?php endforeach; ?>
+	    	</tr>
+	    <?php } ?>
+	</table>
+	
+<?php 
+	include 'footer_common.php';
+?>

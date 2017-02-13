@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
+<?php 
+	include 'head_common.php';
+	?>
 <body>
-
-<h1>ERROR NOT FOUND</h1>
+	<h1><?= $this->page; ?></h1>
 	
-</body>
-</html>
+<?php 
+	include 'footer_common.php';
+?>

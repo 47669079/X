@@ -1,4 +1,4 @@
-//Fitxer de configuració en json, por cada clave tenemos un objeto
+
 
 {
 	"app":{
@@ -6,10 +6,11 @@
 		"version":"1.0"
 	},
 	"dbconf":{
-		"driver":"",
-		"dbhost":"",
-		"dbuser":"",
-		"dbname":""
+		"driver":"mysql",
+		"dbname":"X",
+		"dbhost":"localhost",
+		"dbuser":"olalla",
+		"dbpass":"olalla"
 	}
 
 }

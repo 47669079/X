@@ -6,8 +6,11 @@
 	
 	class vHome extends View{
 
-		function __construct($dataView){
-			parent::__construct($dataView);
-			echo $this->render('thome.php');
+		function __construct($dataView, $dataTable=null){
+
+			parent::__construct($dataView,$dataTable);
+			
+			$this->output=$this->render('thome.php');
+
 		}
 	}

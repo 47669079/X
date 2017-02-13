@@ -51,23 +51,52 @@
 		*
 		*
 		*/
-		static function router(){
-			//si no hi ha controller busquem 'home'
+
+		static function getFileContAct(){
+
 			self::$controller=(self::$controller!="")?self::$controller:'home';
 			self::$action=(self::$action!="")?self::$action:'home';
 			//trobar controladors
 			$filename=strtolower(self::$controller).'.php';
 			$fileroute=APP.'controllers'.DS.$filename;
+
+			return $fileroute;
+
+		}
+
+		static function router(){
+
+			//si no hi ha controller busquem 'home'
+
+			/*
+			
+			ROUTER Y GETFILECONTACT ANTES ESTABAN JUNTAS
+
+			self::$controller=(self::$controller!="")?self::$controller:'home';
+			self::$action=(self::$action!="")?self::$action:'home';
+			//trobar controladors
+			$filename=strtolower(self::$controller).'.php';
+			$fileroute=APP.'controllers'.DS.$filename;*/
+
+			$fileroute=self::getFileContAct();
 		
 			if(is_readable($fileroute)){
-				$contr_class='\X\App\Controllers\\'.ucfirst(self::$controller);
+
+				$contr_class='\X\App\Controllers\\'.ucfirst(self::$controller); //si existe el controlador
 				self::$controller=new $contr_class(self::$params);
 				// cal cridar ara l'accio
 				if (is_callable(array(self::$controller,self::$action))){
 					call_user_func(array(self::$controller,self::$action));
 				}
-				else{ echo self::$action.': Mètode inexistent';}
-			}else{
+				else{ 
+					self::$action.': error';
+					call_user_func(array(self::$controller, self::$action));
+
+				}
+			}
+
+			else{
+
 				self::$controller=new Error(self::$params);
 				//hem de buscar un métode que interpreti si hi ha un métode inexsistent o no
 
