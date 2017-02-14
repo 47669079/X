@@ -62,7 +62,6 @@
 						$type=\PDO::PARAM_STR;
 						break;
 
-						break;
 				}
 
 
